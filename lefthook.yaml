@@ -1,0 +1,17 @@
+# pre-commit:
+#   scripts:
+#     "eval-linter-steps":
+#       runner: python
+
+
+# commit-msg:
+#   scripts:
+#     "check-message.py":
+#       runner: python3
+#       priority: 1
+#       fail_text: "Commit message is not valid"
+#     "append-footer.py": 
+#       runner: python3
+#       use_stdin: true
+#       priority: 2
+#       interactive: true
