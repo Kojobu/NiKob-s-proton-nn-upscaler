@@ -2,9 +2,13 @@
 name = "win64_dx_hook"
 version = "0.1.0"
 edition = "2021"
+authors = ["Niklas Fritsch (@Nifri2)"]
 
 [dependencies]
 lazy_static = "1.5.0"
 minhook = "0.5.0"
 widestring = "1.1.0"
-winapi = "0.3.9"
+
+[dependencies.winapi]
+version = "0.3.9"
+features = ["d3d11", "dxgi", "d3dcompiler", "libloaderapi", "processthreadsapi", "winnt", "winerror", "memoryapi", "processthreadsapi", "handleapi"]

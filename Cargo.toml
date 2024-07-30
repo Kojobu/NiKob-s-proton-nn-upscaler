@@ -3,3 +3,7 @@
 members = [
     "injector/win64",
 ]
+default-members = [
+    "injector/win64",
+]
+resolver = "2"
