@@ -1,5 +1,5 @@
 [package]
-name = "nnus_layer"
+name = "VkLayer_nnus"
 version = "0.1.0"
 edition = "2021"
 authors = ["Niklas Fritsch (@Nifri2)"]

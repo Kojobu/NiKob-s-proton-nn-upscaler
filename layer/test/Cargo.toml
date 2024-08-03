@@ -7,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-nnus_layer = { path = "../vk_layer" }
+VkLayer_nnus = { path = "../vk_layer" }
 ash = { version = "0.37", features = ["linked", "debug"] }
 libc = "0.2"
 log = "0.4.20"

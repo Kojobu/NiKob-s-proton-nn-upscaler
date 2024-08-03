@@ -9,4 +9,5 @@ tasks:
       - cargo run {{.CLI_ARGS}}
   release:
     cmds:
+      - cargo test
       - cargo build --release
