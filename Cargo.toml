@@ -1,9 +1,10 @@
 [workspace]
 
 members = [
-    "injector/win64",
+    "layer/vk_layer", "layer/test",
 ]
 default-members = [
-    "injector/win64",
+    "layer/vk_layer", "layer/test",
 ]
 resolver = "2"
+
