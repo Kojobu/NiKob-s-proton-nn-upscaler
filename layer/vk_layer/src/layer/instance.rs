@@ -29,7 +29,10 @@ pub extern "system" fn wsi_layer_vkCreateInstance(
     p_allocation_callbacks: *const vk::AllocationCallbacks,
     p_instance: *mut vk::Instance,
 ) -> vk::Result {
+    
     log!("Creating instance!");
+    log!("Hello from within the layer! :3");
+
     let p_layer_instance_create_info =
         unsafe { get_chain_info(p_instance_create_info, lvk::LayerFunction::LAYER_LINK_INFO) };
     let Some(layer_instance_create_info) = (unsafe { p_layer_instance_create_info.as_mut() }) else {
