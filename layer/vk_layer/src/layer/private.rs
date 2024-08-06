@@ -15,6 +15,7 @@ pub struct DeviceDispatchTable {
 static INSTANCE_DATA: Storage<u64, InstanceData> = Storage::new();
 static DEVICE_DATA: Storage<u64, DeviceData> = Storage::new();
 
+
 pub struct InstanceData {
     dispatch_table: InstanceDispatchTable
 }
@@ -51,7 +52,6 @@ pub struct DeviceData {
 }
 
 impl DeviceData {
-
     pub fn insert(device: &vk::Device, dispatch_table: DeviceDispatchTable) {
         DEVICE_DATA.insert(device.as_raw(), DeviceData {
             dispatch_table
@@ -73,4 +73,5 @@ impl DeviceData {
     pub fn delete(device: &vk::Device) -> StorageDeleteGuard<'static, u64, DeviceData> {
         DEVICE_DATA.delete(device.as_raw())
     }
+
 }

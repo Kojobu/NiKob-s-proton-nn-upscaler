@@ -52,6 +52,7 @@ pub extern "system" fn wsi_layer_GetInstanceProcAddr(
         },
         "vkCreateInstance" => unsafe { mem::transmute(wsi_layer_vkCreateInstance as *const ()) },
         "vkDestroyInstance" => unsafe { mem::transmute(wsi_layer_vkDestroyInstance as *const ()) },
+        "vkCreateDevice" => unsafe { mem::transmute(wsi_layer_vkCreateDevice as *const ()) },
         _ => {
             let instance_data_guard = InstanceData::read(&instance);
             // If the function is not intercepted by our layer we simply forward the call to the next
@@ -73,6 +74,7 @@ pub extern "system" fn wsi_layer_GetDeviceProcAddr(
     p_name: *const libc::c_char,
 ) -> vk::PFN_vkVoidFunction {
     let name = unsafe { CStr::from_ptr(p_name) }.to_str().unwrap();
+    log!("Get device proc: {}", name);
     match name {
         "vkGetDeviceProcAddr" => unsafe {
             mem::transmute(wsi_layer_GetDeviceProcAddr as *const ())

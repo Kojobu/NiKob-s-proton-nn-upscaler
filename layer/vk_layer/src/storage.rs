@@ -4,6 +4,9 @@ use std::hash::Hash;
 use std::ops::{Deref, DerefMut};
 use std::sync::{RwLock, RwLockReadGuard, RwLockWriteGuard};
 
+use crate::log;
+
+
 pub struct Storage<K, V> {
     storage: UnsafeCell<Option<HashMap<K, V>>>,
     lock: RwLock<()>
@@ -70,8 +73,9 @@ impl<'a, K, V> Drop for StorageDeleteGuard<'a, K, V> where K: Eq + Hash {
     }
 }
 
-impl<K, V> Storage<K, V> where K: Eq + Hash {
 
+impl<K, V> Storage<K, V> where K: Eq + Hash {
+    
     pub const fn new() -> Self {
         Storage {
             storage: UnsafeCell::new(None),
@@ -79,8 +83,12 @@ impl<K, V> Storage<K, V> where K: Eq + Hash {
         }
     }
 
+    pub fn im_good(&self) {
+        log!("I'm good!");
+    }
+
     unsafe fn get_mut(&self) -> &mut HashMap<K, V> {
-        let storage = self.storage.get().as_mut().unwrap();
+        let storage = &mut *self.storage.get();
         if storage.is_none() {
             *storage = Some(HashMap::new());
         }

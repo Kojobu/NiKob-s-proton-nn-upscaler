@@ -71,6 +71,7 @@ pub extern "system" fn wsi_layer_vkCreateDevice(
     };
     // Allocate private device data for this vulkan device statically
     // Can be retrieved in any other function call later.
+
     DeviceData::insert(&device, dispatch_table);
 
     vk::Result::SUCCESS
