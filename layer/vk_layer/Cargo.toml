@@ -1,0 +1,20 @@
+[package]
+name = "VkLayer_nnus"
+version = "0.1.0"
+edition = "2021"
+authors = ["Niklas Fritsch (@Nifri2)"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+libc = "0.2"
+ash = "0.37"
+ash-layer = "0.0.1"
+
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

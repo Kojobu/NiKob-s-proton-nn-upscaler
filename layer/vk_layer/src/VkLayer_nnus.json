@@ -1,0 +1,15 @@
+{
+  "file_format_version": "1.0.0",
+  "layer": {
+    "name": "VK_LAYER_SAMPLE_nnus",
+    "type": "GLOBAL",
+    "library_path": ".\\VkLayer_nnus.dll",
+    "api_version": "1.0.0",
+    "implementation_version": "1",
+    "description": "Sample layer - https://renderdoc.org/vulkan-layer-guide.html",
+    "functions": {
+      "vkGetInstanceProcAddr": "wsi_layer_GetInstanceProcAddr",
+      "vkGetDeviceProcAddr": "wsi_layer_GetDeviceProcAddr"
+    }
+  }
+}

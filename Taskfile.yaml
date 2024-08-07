@@ -1,7 +1,13 @@
 version: '3'
 
 tasks:
-  hello:
+  build:
     cmds:
-      - echo 'Hello World from Task!'
-    silent: false
+      - cargo build
+  run: 
+    cmds:
+      - cargo run {{.CLI_ARGS}}
+  release:
+    cmds:
+      - cargo test
+      - cargo build --release
